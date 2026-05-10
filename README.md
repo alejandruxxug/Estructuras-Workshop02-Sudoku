@@ -55,8 +55,8 @@ funcion resolver(tablero):
 |---|---|------------------|---|
 | 1 | Presentación + documentación | Samuel Tabares   | Diapositivas, sustentación, rúbrica |
 | 2 | Interfaz gráfica (JavaFX) | Alejandro Urrego | `SudokuController` + FXML + estilos |
-| 3 | Modelo del tablero | Persona C        | `SudokuBoard.java` |
-| 4 | Algoritmo de backtracking | Persona D        | `BacktrackingSolver.java` |
+| 3 | Modelo del tablero | Valeria Gomez    | `SudokuBoard.java` |
+| 4 | Algoritmo de backtracking | Samuel Lopez     | `BacktrackingSolver.java` |
 
 > Personas C y D: cada especificación de abajo está escrita para que la peguen tal cual en una IA (ChatGPT/Claude) y obtengan código que compila y pasa los tests. **No cambien las firmas de métodos** ni los nombres de archivos — la UI y el solver dependen de ellos.
 
