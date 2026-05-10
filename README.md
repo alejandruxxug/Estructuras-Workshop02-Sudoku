@@ -128,7 +128,7 @@ Eres responsable de que el trabajo se entienda y se defienda bien. **35% de la n
 > **Instrucciones para ti:** copia toda esta sección (desde "PROMPT PARA IA" hasta el final del bloque) y pégala en ChatGPT/Claude. El código que genere lo guardas en `src/main/java/org/example/sudoku/SudokuBoard.java`. Después corres `./mvnw test` y debe pasar.
 
 ```
-PROMPT PARA IA — pega esto tal cual:
+Instrucciones de la clase:
 
 Genera una clase Java llamada `SudokuBoard` en el paquete
 `org.example.sudoku`. Requisitos exactos:
@@ -199,7 +199,7 @@ Todos los tests de `SudokuBoardTest` deben pasar en verde.
 > **Importante:** este código DEPENDE de la clase `SudokuBoard` que hace Persona C. Si Persona C aún no terminó, pídele las firmas (los métodos públicos están listados arriba).
 
 ```
-PROMPT PARA IA — pega esto tal cual:
+Instrucciones de la clase:
 
 Genera una clase Java llamada `BacktrackingSolver` en el paquete
 `org.example.sudoku`. Usa la clase `SudokuBoard` ya existente (mismo
