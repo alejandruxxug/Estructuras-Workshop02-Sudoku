@@ -1,8 +1,9 @@
 package org.example.sudoku;
 
 public class SudokuBoard {
-    private static final int SIZE = 9;
-    private static final int BOX_SIZE = 3;
+    public static final int SIZE = 9;
+    public static final int BOX_SIZE = 3;
+    public static final int EMPTY = 0;
     private int[][] grid;
 
     public SudokuBoard() {
@@ -21,7 +22,7 @@ public class SudokuBoard {
         for (int i = 0; i < SIZE; i++) {
             if (initial[i] == null || initial[i].length != SIZE) {
                 throw new IllegalArgumentException(
-                        "La fila " + i + " no tiene 9 columnas"
+                    "La fila " + i + " no tiene 9 columnas"
                 );
             }
 
@@ -50,9 +51,14 @@ public class SudokuBoard {
         return grid[row][col];
     }
 
+    /**
+     * Asigna {@code value} en la celda. No verifica reglas del Sudoku;
+     * el llamador debe usar {@link #isValidPlacement} antes si requiere validar.
+     * Esto es intencional para que el solver pueda colocar valores tentativos.
+     */
     public void set(int row, int col, int value) {
         validateIndices(row, col);
-        if (value < 0 || value > 9) {
+        if (value < 0 || value > SIZE) {
             throw new IllegalArgumentException(
                     "El valor debe estar en [0, 9], se recibió: " + value
             );
@@ -121,6 +127,24 @@ public class SudokuBoard {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 if (grid[i][j] == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Verifica que el tablero actual no contenga conflictos entre los valores
+     * ya colocados (fila/columna/subcuadrícula). Útil para validar la entrada
+     * del usuario antes de invocar al solver: si retorna {@code false}, el
+     * problema es la entrada, no que el puzzle sea irresoluble.
+     */
+    public boolean isInitialStateValid() {
+        for (int r = 0; r < SIZE; r++) {
+            for (int c = 0; c < SIZE; c++) {
+                int v = grid[r][c];
+                if (v != EMPTY && !isValidPlacement(r, c, v)) {
                     return false;
                 }
             }
