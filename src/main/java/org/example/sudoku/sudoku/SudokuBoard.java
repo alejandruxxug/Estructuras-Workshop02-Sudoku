@@ -1,4 +1,4 @@
-package org.example.sudoku;
+package org.example.sudoku.sudoku;
 
 public class SudokuBoard {
     public static final int SIZE = 9;

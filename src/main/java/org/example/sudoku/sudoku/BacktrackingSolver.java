@@ -1,14 +1,22 @@
-package org.example.sudoku;
+package org.example.sudoku.sudoku;
 
 public class BacktrackingSolver {
 
+    private final SolveListener listener;
     private long steps;
+
+    public BacktrackingSolver() {
+        this(null);
+    }
+
+    public BacktrackingSolver(SolveListener listener) {
+        this.listener = listener;
+    }
 
     public boolean solve(SudokuBoard board) {
         steps = 0;
         return solveRecursive(board);
     }
-
 
     public long getSteps() {
         return steps;
@@ -30,11 +38,19 @@ public class BacktrackingSolver {
                 board.set(row, col, value);
                 steps++;
 
+                if (listener != null) {
+                    listener.onPlace(row, col, value);
+                }
+
                 if (solveRecursive(board)) {
                     return true;
                 }
 
                 board.set(row, col, SudokuBoard.EMPTY);
+
+                if (listener != null) {
+                    listener.onUnplace(row, col);
+                }
             }
         }
 

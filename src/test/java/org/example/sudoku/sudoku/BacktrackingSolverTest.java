@@ -1,4 +1,4 @@
-package org.example.sudoku;
+package org.example.sudoku.sudoku;
 
 import org.junit.jupiter.api.Test;
 

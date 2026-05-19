@@ -1,0 +1,288 @@
+/* ======== OnlySudoku theme (dark) ======== */
+.root {
+    -fx-font-family: "Helvetica Neue", "Arial", sans-serif;
+    -fx-font-smoothing-type: lcd;
+    -of-accent: #00AFF0;
+    -of-accent-dark: #0090C8;
+    -of-bg: #0B0F14;
+    -of-card: #14191F;
+    -of-border: #232A33;
+    -of-text: #ECEFF3;
+    -of-text-muted: #8A96A3;
+}
+
+.app-root {
+    -fx-background-color: -of-bg;
+}
+
+/* ===== Header bar ===== */
+.app-header {
+    -fx-background-color: -of-card;
+    -fx-border-color: -of-border;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 16 36 16 36;
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 18;
+}
+.brand-text {
+    -fx-text-fill: -of-accent;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+}
+.profile-circle {
+    -fx-background-color: -of-accent;
+    -fx-background-radius: 999;
+    -fx-min-width: 52; -fx-min-height: 52;
+    -fx-max-width: 52; -fx-max-height: 52;
+    -fx-cursor: hand;
+}
+
+/* ===== Side nav ===== */
+.app-nav {
+    -fx-background-color: -of-card;
+    -fx-border-color: -of-border;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 24 18 24 18;
+    -fx-spacing: 16;
+    -fx-min-width: 240;
+}
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -of-text;
+    -fx-font-size: 18;
+    -fx-padding: 14 22 14 22;
+    -fx-background-radius: 999;
+    -fx-cursor: hand;
+}
+.nav-button:hover {
+    -fx-background-color: derive(-of-accent, 80%);
+    -fx-text-fill: -of-accent-dark;
+}
+
+/* ===== Feed posts ===== */
+.feed-scroll {
+    -fx-background-color: transparent;
+}
+.feed-scroll .viewport {
+    -fx-background-color: transparent;
+}
+.feed-scroll > .scroll-bar:horizontal,
+.feed-scroll > .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.feed-container {
+    -fx-padding: 32 32 32 32;
+    -fx-spacing: 26;
+    -fx-alignment: TOP_CENTER;
+}
+.post-card {
+    -fx-background-color: -of-card;
+    -fx-background-radius: 20;
+    -fx-border-color: -of-border;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 26;
+    -fx-spacing: 18;
+    -fx-max-width: 820;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 16, 0.0, 0, 5);
+}
+.post-header {
+    -fx-spacing: 16;
+    -fx-alignment: CENTER_LEFT;
+}
+.post-avatar {
+    -fx-background-color: -of-accent;
+    -fx-background-radius: 999;
+    -fx-min-width: 60; -fx-min-height: 60;
+    -fx-max-width: 60; -fx-max-height: 60;
+    -fx-alignment: CENTER;
+}
+.post-avatar Label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 24;
+}
+.post-name {
+    -fx-font-weight: bold;
+    -fx-text-fill: -of-text;
+    -fx-font-size: 20;
+}
+.post-handle {
+    -fx-text-fill: -of-text-muted;
+    -fx-font-size: 16;
+}
+.post-body {
+    -fx-text-fill: -of-text;
+    -fx-font-size: 17;
+    -fx-wrap-text: true;
+}
+
+/* ===== Sudoku grid ===== */
+.sudoku-grid {
+    -fx-padding: 4;
+    -fx-hgap: 0;
+    -fx-vgap: 0;
+}
+.sudoku-cell {
+    -fx-pref-width: 58;
+    -fx-pref-height: 58;
+    -fx-min-width: 58;
+    -fx-min-height: 58;
+    -fx-max-width: 58;
+    -fx-max-height: 58;
+    -fx-alignment: CENTER;
+    -fx-font-size: 24;
+    -fx-background-radius: 0;
+    -fx-border-color: -of-border;
+    -fx-border-width: 0.5;
+    -fx-background-color: #1B2129;
+    -fx-text-fill: -of-text;
+    -fx-prompt-text-fill: -of-text-muted;
+}
+.sudoku-cell:focused {
+    -fx-border-color: -of-accent;
+    -fx-border-width: 1.5;
+}
+.sudoku-cell.user {
+    -fx-font-weight: bold;
+    -fx-text-fill: -of-text;
+}
+.sudoku-cell.solver {
+    -fx-text-fill: -of-accent;
+    -fx-font-weight: bold;
+}
+.sudoku-cell.thick-right { -fx-border-width: 0.5 2 0.5 0.5; -fx-border-color: -of-border -of-accent -of-border -of-border; }
+.sudoku-cell.thick-bottom { -fx-border-width: 0.5 0.5 2 0.5; -fx-border-color: -of-border -of-border -of-accent -of-border; }
+.sudoku-cell.thick-right.thick-bottom { -fx-border-width: 0.5 2 2 0.5; -fx-border-color: -of-border -of-accent -of-accent -of-border; }
+
+/* ===== Buttons ===== */
+.primary-button {
+    -fx-background-color: -of-accent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-padding: 12 32 12 32;
+    -fx-background-radius: 999;
+    -fx-cursor: hand;
+}
+.primary-button:hover { -fx-background-color: -of-accent-dark; }
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -of-accent;
+    -fx-border-color: -of-accent;
+    -fx-border-radius: 999;
+    -fx-background-radius: 999;
+    -fx-padding: 12 32 12 32;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.secondary-button:hover { -fx-background-color: derive(-of-accent, 90%); }
+
+.speed-slider .track { -fx-background-color: -of-border; }
+.speed-slider .thumb { -fx-background-color: -of-accent; }
+
+/* ===== Generate side panel ===== */
+.gen-panel {
+    -fx-padding: 6 6 6 10;
+    -fx-min-width: 200;
+    -fx-pref-width: 220;
+}
+.gen-title {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-text-fill: -of-text-muted;
+}
+.gen-subtle {
+    -fx-font-size: 13;
+    -fx-text-fill: -of-text-muted;
+}
+.gen-button {
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 12 18 12 18;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+}
+.gen-easy   { -fx-background-color: #2BB673; }
+.gen-easy:hover   { -fx-background-color: #239D62; }
+.gen-medium { -fx-background-color: #E0A82E; }
+.gen-medium:hover { -fx-background-color: #C28E25; }
+.gen-hard   { -fx-background-color: #D9534F; }
+.gen-hard:hover   { -fx-background-color: #B73F3C; }
+
+/* ===== Modal ===== */
+.modal-card {
+    -fx-background-color: -of-card;
+    -fx-background-radius: 14;
+    -fx-padding: 24;
+    -fx-border-color: -of-border;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 18, 0.0, 0, 6);
+}
+.modal-title { -fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: -of-text; }
+.modal-message { -fx-font-size: 14; -fx-text-fill: -of-text-muted; }
+
+/* ===== Ambient horror layer ===== */
+.vignette-overlay {
+    -fx-background-color: radial-gradient(center 50% 50%, radius 75%,
+        transparent 55%,
+        rgba(0,0,0,0.30) 80%,
+        rgba(0,0,0,0.55) 100%);
+}
+
+.sudoku-cell.ghost-flash {
+    -fx-border-color: -of-accent;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(0,175,240,0.55), 12, 0.4, 0, 0);
+}
+
+/* ===== Loading splash ===== */
+.loading-bar {
+    -fx-accent: -of-accent;
+    -fx-background-radius: 999;
+}
+.loading-bar > .bar {
+    -fx-background-color: -of-accent;
+    -fx-background-radius: 999;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.loading-bar > .track {
+    -fx-background-color: #1C232C;
+    -fx-background-radius: 999;
+}
+.loading-label {
+    -fx-text-fill: -of-text-muted;
+    -fx-font-size: 14;
+    -fx-letter-spacing: 0.2em;
+}
+
+/* ===== Success overlay ===== */
+.success-title {
+    -fx-font-size: 96;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0.0, 0, 4);
+}
+
+/* ===== Retry button (death screen) ===== */
+.retry-button {
+    -fx-background-color: black;
+    -fx-text-fill: #FF4F4F;
+    -fx-font-family: "Courier New", monospace;
+    -fx-font-size: 28;
+    -fx-font-weight: bold;
+    -fx-padding: 14 36 14 36;
+    -fx-border-color: #FF4F4F;
+    -fx-border-width: 2;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+}
+.retry-button:hover {
+    -fx-background-color: #220000;
+}

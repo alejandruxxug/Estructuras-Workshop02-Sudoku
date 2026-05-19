@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" styleClass="app-root"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.sudoku.controllers.AppController">
+
+    <top>
+        <HBox styleClass="app-header">
+            <ImageView fitHeight="72" preserveRatio="true">
+                <image>
+                    <Image url="@assets/onlySudoku_logo.png"/>
+                </image>
+            </ImageView>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="" styleClass="profile-circle"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox styleClass="app-nav">
+            <Button text="Inicio" styleClass="nav-button"/>
+            <Button text="Notificaciones" styleClass="nav-button"/>
+            <Button text="Mensajes" styleClass="nav-button"/>
+            <Button text="Suscripciones" styleClass="nav-button"/>
+            <Button text="Perfil" styleClass="nav-button"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fx:id="feedScroll" fitToWidth="true" styleClass="feed-scroll"
+                    hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+            <content>
+                <VBox fx:id="feedContainer" styleClass="feed-container"/>
+            </content>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

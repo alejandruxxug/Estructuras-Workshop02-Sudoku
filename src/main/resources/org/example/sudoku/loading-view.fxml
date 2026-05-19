@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="root" style="-fx-background-color: #0B0F14;"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="org.example.sudoku.controllers.LoadingController">
+    <VBox alignment="CENTER" spacing="36">
+        <ImageView fx:id="logo" preserveRatio="true" fitWidth="460">
+            <image>
+                <Image url="@assets/onlySudoku_logo.png"/>
+            </image>
+        </ImageView>
+        <ProgressBar fx:id="progressBar" prefWidth="360" prefHeight="14"
+                     styleClass="loading-bar" progress="0.0"/>
+        <Label fx:id="loadingLabel" text="Cargando…" styleClass="loading-label"/>
+    </VBox>
+</StackPane>
