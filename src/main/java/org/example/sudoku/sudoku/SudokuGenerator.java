@@ -20,10 +20,15 @@ public final class SudokuGenerator {
 
     private final Random rng;
 
+    /** Generador con semilla aleatoria. */
     public SudokuGenerator() {
         this(new Random());
     }
 
+    /**
+     * Generador con RNG inyectado. Útil para tests deterministas:
+     * pasar un {@code new Random(semilla)} reproduce el mismo puzzle.
+     */
     public SudokuGenerator(Random rng) {
         this.rng = rng;
     }
@@ -56,6 +61,11 @@ public final class SudokuGenerator {
         return grid;
     }
 
+    /**
+     * Backtracking idéntico al de {@link BacktrackingSolver} pero con el
+     * orden de candidatos barajado en cada celda — así cada ejecución
+     * produce una solución distinta en lugar de la misma canónica.
+     */
     private boolean fillRandomly(int[][] grid) {
         int[] empty = findEmpty(grid);
         if (empty == null) return true;
@@ -77,6 +87,7 @@ public final class SudokuGenerator {
         return false;
     }
 
+    /** Primera celda en {@link SudokuBoard#EMPTY}, o {@code null} si no hay. */
     private int[] findEmpty(int[][] grid) {
         for (int r = 0; r < SIZE; r++) {
             for (int c = 0; c < SIZE; c++) {
@@ -86,6 +97,11 @@ public final class SudokuGenerator {
         return null;
     }
 
+    /**
+     * Equivalente local a {@link SudokuBoard#isValidPlacement} sobre el
+     * {@code int[][]} crudo, para evitar el overhead de envolver el grid
+     * en un {@link SudokuBoard} durante la generación.
+     */
     private boolean isSafe(int[][] grid, int row, int col, int v) {
         for (int i = 0; i < SIZE; i++) {
             if (grid[row][i] == v) return false;

@@ -63,7 +63,7 @@ public class FailureOverlay extends StackPane {
         // El audio arranca 80 ms ANTES de que el gif comience a animarse.
         jumpscareAudio = AudioCue.play("/org/example/sudoku/assets/audioCues/jumpscare.mp3");
 
-        PauseTransition leadIn = new PauseTransition(Duration.millis(80));
+        PauseTransition leadIn = new PauseTransition(Duration.millis(500));
         leadIn.setOnFinished(e -> {
             img.setVisible(true);
             jumpscareTimeline.play();
@@ -86,7 +86,7 @@ public class FailureOverlay extends StackPane {
         staticCanvas = new StaticCanvas(width, height);
         getChildren().setAll(staticCanvas);
 
-        PauseTransition hold = new PauseTransition(Duration.millis(1500));
+        PauseTransition hold = new PauseTransition(Duration.millis(2500));
         hold.setOnFinished(e -> goToDeathScreen());
         hold.play();
     }
